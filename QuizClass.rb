@@ -9,6 +9,8 @@ class Ball
     @color = "None"
   end
   def roll(distance, direction)
+    circum = @radius * 2 * Math::PI
+    rotat = circum/distance
     if direction.downcase == "left"
       puts @xcord
       @direction = "left"
@@ -16,12 +18,16 @@ class Ball
       #Move x left distance
       puts "X Cordinate: "
       puts @xcord
+      puts "Ball Rotations: "
+      puts rotat.round(3)
     elsif direction.downcase == "right"
       @direction = "right"
       @xcord = @xcord + distance
       #Move x right distance
       puts "X Cordinate:"
       puts @xcord
+      puts "Ball Rotations: "
+      puts rotat.round(3)
     else
       puts "Enter valid direction"
     end
@@ -70,7 +76,7 @@ class Ball
   end
 end
 b = Ball.new
-b.roll(10, "right")
+b.roll(15, "right")
 b.deflate(4)
 b.inflate(4)
 b.throwup(10)
